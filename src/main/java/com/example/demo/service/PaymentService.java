@@ -6,17 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.paypal.api.payments.Amount;
+import com.paypal.api.payments.Payer;
+import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.PaymentExecution;
+import com.paypal.api.payments.RedirectUrls;
+import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
-import com.stripe.param.TopupListParams.Amount;
+import com.paypal.base.rest.PayPalRESTException;
+
 
 
 @Service
 public class PaymentService {
-	   @Value("${stripe.apikey}")
-	   String stripeKey;
 	
 	   @Autowired
 		private APIContext apiContext;
